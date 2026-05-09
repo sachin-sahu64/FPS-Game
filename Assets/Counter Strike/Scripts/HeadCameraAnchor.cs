@@ -7,43 +7,56 @@ public class HeadCameraAnchor : MonoBehaviour
     public Vector3 positionOffset; // Adjust if needed (e.g. 0, 0, 0.1)
     
     [Header("Rotation Settings")]
-    public float mouseSensitivity = 2f;
     public Transform playerBody;
+    public float mouseSensitivity = 100f;
+    public float rotationSmoothing = 20f;
+    [Range(0, 1)] 
+    public float headInfluence = 0.5f; // 1 = full animation shake, 0 = no shake
 
     private float xRotation = 0f;
     private float yRotation = 0f;
+    private float currentXRotation = 0f;
+    private float currentYRotation = 0f;
 
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         if (playerBody != null)
+        {
             yRotation = playerBody.eulerAngles.y;
+            currentYRotation = yRotation;
+        }
     }
 
     void LateUpdate()
     {
         if (headBone == null || playerBody == null) return;
 
-        // 1. MOUSE INPUT
-        float mouseX = Input.GetAxisRaw("Mouse X") * mouseSensitivity;
-        float mouseY = Input.GetAxisRaw("Mouse Y") * mouseSensitivity;
+        // 1. MOUSE INPUT (With Time.deltaTime for consistency)
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
         yRotation += mouseX;
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        // 2. ROTATE PLAYER BODY (Horizontal Only)
-        playerBody.rotation = Quaternion.Euler(0f, yRotation, 0f);
+        // Smoothing the rotation
+        currentXRotation = Mathf.Lerp(currentXRotation, xRotation, Time.deltaTime * rotationSmoothing);
+        currentYRotation = Mathf.Lerp(currentYRotation, yRotation, Time.deltaTime * rotationSmoothing);
 
-        // 3. POSITION: Snap to Head Bone (This copies the Animation movement)
+        // 2. ROTATE PLAYER BODY (Horizontal Only)
+        playerBody.rotation = Quaternion.Euler(0f, currentYRotation, 0f);
+
+        // 3. POSITION: Snap to Head Bone
         transform.position = headBone.position + headBone.TransformDirection(positionOffset);
 
-        // 4. ROTATION: Combine Animation Rotation + Mouse Look
-        // This makes the camera "shake/tilt" exactly like the head animation
-        Quaternion headRotation = headBone.rotation;
-        Quaternion mouseLookRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        // 4. ROTATION: Blend Animation Rotation + Mouse Look
+        Quaternion mouseLookRotation = Quaternion.Euler(currentXRotation, currentYRotation, 0f);
         
-        // Combine them: Head movement + Mouse Pitch
-        transform.rotation = headRotation * mouseLookRotation;
+        // If headInfluence is 1, it copies 100% of head tilt. 
+        // If 0, it only uses mouse look.
+        Quaternion animatedRotation = Quaternion.Slerp(mouseLookRotation, headBone.rotation * Quaternion.Euler(xRotation, 0, 0), headInfluence);
+        
+        transform.rotation = animatedRotation;
     }
 }
