@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe5c183eefcf04047b9a7883db28724b, type: 3}
+  m_Name: DefaultEconomyTable
+  m_EditorClassIdentifier: FPSGame.Runtime::FPSGame.Economy.EconomyTable
+  rewards:
+  - rewardType: 0
+    cashAmount: 300
+  - rewardType: 1
+    cashAmount: 800
+  - rewardType: 2
+    cashAmount: 3250
+  - rewardType: 3
+    cashAmount: 400
