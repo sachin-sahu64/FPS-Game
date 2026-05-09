@@ -276,7 +276,7 @@ Transform:
   m_GameObject: {fileID: 414536118}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.911, z: 0}
+  m_LocalPosition: {x: 0, y: -0.083, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -330,9 +330,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8472032443104073498, guid: f7a6440741f32714fa862a1d10027684, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6268238552560437597, guid: f7a6440741f32714fa862a1d10027684, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f7a6440741f32714fa862a1d10027684, type: 3}
       propertyPath: m_Name
       value: Happy Idle
+      objectReference: {fileID: 0}
+    - target: {fileID: 1630794972795428178, guid: f7a6440741f32714fa862a1d10027684, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5128063986421979777, guid: f7a6440741f32714fa862a1d10027684, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: f7a6440741f32714fa862a1d10027684, type: 3}
       propertyPath: m_Controller
@@ -648,6 +664,9 @@ MonoBehaviour:
   mouseSensitivity: 100
   rotationSmoothing: 20
   headInfluence: 0.15
+  swayAmount: 0.02
+  swaySpeed: 2
+  swaySmooth: 5
 --- !u!1 &1228384118
 GameObject:
   m_ObjectHideFlags: 0
@@ -697,8 +716,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26066956d21c8cd41b24ab591a4d4f4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  walkSpeed: 5
-  runSpeed: 8
+  walkSpeed: 1
+  runSpeed: 5
   crouchSpeed: 2.5
   jumpHeight: 2
   gravity: -19.62
