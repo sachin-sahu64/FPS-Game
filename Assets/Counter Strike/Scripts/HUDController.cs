@@ -16,14 +16,43 @@ public class HUDController : MonoBehaviour
 
     [Header("Crosshair")]
     public RectTransform crosshair;
+    public Image hitmarkerImage; // New reference
     public float baseSize = 50f;
     public float currentSize;
+
+    private float hitmarkerTimer;
+
+    void Start()
+    {
+        if (hitmarkerImage != null) hitmarkerImage.color = new Color(1, 1, 1, 0);
+    }
 
     void Update()
     {
         UpdateHealthUI();
         UpdateWeaponUI();
         UpdateCrosshair();
+        UpdateHitmarker();
+    }
+
+    public void ShowHitmarker()
+    {
+        if (hitmarkerImage == null) return;
+        hitmarkerImage.color = Color.white;
+        hitmarkerTimer = 0.1f; // Show for 0.1 seconds
+    }
+
+    void UpdateHitmarker()
+    {
+        if (hitmarkerImage == null) return;
+        if (hitmarkerTimer > 0)
+        {
+            hitmarkerTimer -= Time.deltaTime;
+        }
+        else
+        {
+            hitmarkerImage.color = Color.Lerp(hitmarkerImage.color, new Color(1, 1, 1, 0), Time.deltaTime * 10f);
+        }
     }
 
     void UpdateHealthUI()

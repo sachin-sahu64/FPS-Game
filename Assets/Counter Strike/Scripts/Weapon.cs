@@ -111,7 +111,12 @@ public class Weapon : MonoBehaviour
 
         if (Physics.Raycast(shootPoint.position, shootDir, out RaycastHit hit, range, hitLayer))
         {
-            if (hit.collider.TryGetComponent(out Health health)) health.TakeDamage(damage);
+            if (hit.collider.TryGetComponent(out Health health)) 
+            {
+                health.TakeDamage(damage);
+                HUDController hud = FindFirstObjectByType<HUDController>();
+                if (hud != null) hud.ShowHitmarker();
+            }
 
             // 1. Sparks
             if (hitEffectPrefab != null) 
