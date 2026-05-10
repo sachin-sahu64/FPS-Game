@@ -1381,7 +1381,7 @@ MonoBehaviour:
   playerBody: {fileID: 1228384119}
   mouseSensitivity: 100
   rotationSmoothing: 20
-  headInfluence: 0.15
+  headInfluence: 0
   swayAmount: 0.02
   swaySpeed: 2
   swaySmooth: 5

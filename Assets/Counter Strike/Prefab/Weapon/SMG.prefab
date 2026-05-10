@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 7669516488964311899}
   - component: {fileID: 5443578110857517148}
   - component: {fileID: -4998333420825063647}
+  - component: {fileID: 2836942430753909591}
   m_Layer: 0
   m_Name: SMG
   m_TagString: Untagged
@@ -119,3 +120,26 @@ MonoBehaviour:
   rotationAmount: 4
   maxRotationAmount: 5
   smoothRotation: 18
+--- !u!114 &2836942430753909591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5599291426903827811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5f01e0940011a34790c639af34506f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponBobbing
+  walkBobSpeed: 10
+  walkBobAmount: 0.05
+  runBobSpeed: 14
+  runBobAmount: 0.1
+  idleBobSpeed: 2
+  idleBobAmount: 0.01
+  jumpOffset: 0.1
+  landOffset: -0.15
+  offsetSmoothness: 5
+  sideTilt: 2
+  tiltSmoothness: 5

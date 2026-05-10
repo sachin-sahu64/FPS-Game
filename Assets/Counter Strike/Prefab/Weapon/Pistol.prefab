@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 8213991387788623583}
   - component: {fileID: 5478920582784075787}
   - component: {fileID: 6206639133703721146}
+  - component: {fileID: -4608640809096434185}
   m_Layer: 0
   m_Name: Pistol
   m_TagString: Untagged
@@ -201,6 +202,29 @@ MonoBehaviour:
   rotationAmount: 3
   maxRotationAmount: 4
   smoothRotation: 15
+--- !u!114 &-4608640809096434185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6686491579072849680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5f01e0940011a34790c639af34506f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponBobbing
+  walkBobSpeed: 10
+  walkBobAmount: 0.04
+  runBobSpeed: 14
+  runBobAmount: 0.08
+  idleBobSpeed: 2
+  idleBobAmount: 0.01
+  jumpOffset: 0.1
+  landOffset: -0.15
+  offsetSmoothness: 5
+  sideTilt: 3
+  tiltSmoothness: 5
 --- !u!1 &7037731946251217527
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3849145437563565530}
   - component: {fileID: 6496900489728508856}
   - component: {fileID: -2085515372926791419}
+  - component: {fileID: 8536192367104110730}
   m_Layer: 0
   m_Name: Sniper
   m_TagString: Untagged
@@ -88,6 +89,29 @@ MonoBehaviour:
   rotationAmount: 8
   maxRotationAmount: 10
   smoothRotation: 6
+--- !u!114 &8536192367104110730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138969116464586999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5f01e0940011a34790c639af34506f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponBobbing
+  walkBobSpeed: 10
+  walkBobAmount: 0.05
+  runBobSpeed: 14
+  runBobAmount: 0.1
+  idleBobSpeed: 2
+  idleBobAmount: 0.01
+  jumpOffset: 0.1
+  landOffset: -0.15
+  offsetSmoothness: 5
+  sideTilt: 2
+  tiltSmoothness: 5
 --- !u!1 &2708805030589800159
 GameObject:
   m_ObjectHideFlags: 0

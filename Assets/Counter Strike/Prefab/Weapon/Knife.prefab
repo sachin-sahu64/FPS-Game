@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 8746408593612805211}
   - component: {fileID: 7243784978904512675}
   - component: {fileID: -227780852029082452}
+  - component: {fileID: -8322997563747636736}
   m_Layer: 0
   m_Name: Knife
   m_TagString: Untagged
@@ -119,3 +120,26 @@ MonoBehaviour:
   rotationAmount: 10
   maxRotationAmount: 12
   smoothRotation: 8
+--- !u!114 &-8322997563747636736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7097825607229970170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5f01e0940011a34790c639af34506f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponBobbing
+  walkBobSpeed: 10
+  walkBobAmount: 0.05
+  runBobSpeed: 14
+  runBobAmount: 0.1
+  idleBobSpeed: 2
+  idleBobAmount: 0.01
+  jumpOffset: 0.1
+  landOffset: -0.15
+  offsetSmoothness: 5
+  sideTilt: 2
+  tiltSmoothness: 5
