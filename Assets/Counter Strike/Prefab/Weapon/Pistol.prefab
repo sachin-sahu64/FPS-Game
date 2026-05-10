@@ -123,6 +123,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8213991387788623583}
   - component: {fileID: 5478920582784075787}
+  - component: {fileID: 6206639133703721146}
   m_Layer: 0
   m_Name: Pistol
   m_TagString: Untagged
@@ -138,7 +139,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6686491579072849680}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -173,13 +174,33 @@ MonoBehaviour:
   totalAmmo: 36
   spread: 0.02
   runningSpreadMultiplier: 2
-  recoilRotation: {x: -1.5, y: 0.5, z: 0.2}
+  recoilRotation: {x: -1.5, y: 1, z: 0.5}
+  kickbackAmount: 0.05
+  kickbackSmoothness: 10
   shootPoint: {fileID: 4732738738573999382}
   muzzleFlash: {fileID: 0}
   hitEffectPrefab: {fileID: 0}
   hitLayer:
     serializedVersion: 2
     m_Bits: 128
+--- !u!114 &6206639133703721146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6686491579072849680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 643171f6e11cc46478d434e5f49ee8cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponSway
+  amount: 0.015
+  maxAmount: 0.04
+  smoothAmount: 8
+  rotationAmount: 3
+  maxRotationAmount: 4
+  smoothRotation: 15
 --- !u!1 &7037731946251217527
 GameObject:
   m_ObjectHideFlags: 0

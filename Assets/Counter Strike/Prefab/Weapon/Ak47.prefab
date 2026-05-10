@@ -41,6 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5271387874406212248}
   - component: {fileID: 310010974350836550}
+  - component: {fileID: 225350676204462656}
   m_Layer: 0
   m_Name: Ak47
   m_TagString: Untagged
@@ -93,12 +94,32 @@ MonoBehaviour:
   spread: 0.01
   runningSpreadMultiplier: 2
   recoilRotation: {x: -3, y: 1.5, z: 0.5}
+  kickbackAmount: 0.05
+  kickbackSmoothness: 10
   shootPoint: {fileID: 3105211332339803486}
   muzzleFlash: {fileID: 0}
   hitEffectPrefab: {fileID: 0}
   hitLayer:
     serializedVersion: 2
     m_Bits: 128
+--- !u!114 &225350676204462656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6567952801008776840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 643171f6e11cc46478d434e5f49ee8cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponSway
+  amount: 0.02
+  maxAmount: 0.06
+  smoothAmount: 5
+  rotationAmount: 5
+  maxRotationAmount: 6
+  smoothRotation: 10
 --- !u!1001 &5381227785479875464
 PrefabInstance:
   m_ObjectHideFlags: 0

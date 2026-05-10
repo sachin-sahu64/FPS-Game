@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3849145437563565530}
   - component: {fileID: 6496900489728508856}
+  - component: {fileID: -2085515372926791419}
   m_Layer: 0
   m_Name: Sniper
   m_TagString: Untagged
@@ -61,12 +62,32 @@ MonoBehaviour:
   spread: 0.001
   runningSpreadMultiplier: 0.1
   recoilRotation: {x: -5, y: 1, z: 2}
+  kickbackAmount: 0.05
+  kickbackSmoothness: 10
   shootPoint: {fileID: 6458894957453138865}
   muzzleFlash: {fileID: 0}
   hitEffectPrefab: {fileID: 0}
   hitLayer:
     serializedVersion: 2
     m_Bits: 128
+--- !u!114 &-2085515372926791419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138969116464586999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 643171f6e11cc46478d434e5f49ee8cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponSway
+  amount: 0.03
+  maxAmount: 0.1
+  smoothAmount: 3
+  rotationAmount: 8
+  maxRotationAmount: 10
+  smoothRotation: 6
 --- !u!1 &2708805030589800159
 GameObject:
   m_ObjectHideFlags: 0

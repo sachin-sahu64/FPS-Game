@@ -12,8 +12,8 @@ public class Weapon : MonoBehaviour
     public FireMode fireMode = FireMode.Auto;
     public float damage = 20f;
     public float range = 100f;
-    public float fireRate = 0.1f; 
-    public float reloadTime = 2f;
+    public float fireRate = 0.08f; 
+    public float reloadTime = 1.5f;
 
     [Header("Melee Settings")]
     public float meleeRadius = 1.5f;
@@ -34,6 +34,12 @@ public class Weapon : MonoBehaviour
     public float runningSpreadMultiplier = 2f;
     public Vector3 recoilRotation = new Vector3(-2f, 1f, 0.5f); // Up, Left/Right, Tilt
 
+    [Header("Procedural Kickback")]
+    public float kickbackAmount = 0.05f;
+    public float kickbackSmoothness = 10f;
+    private Vector3 currentKickback;
+    private Vector3 originalLocalPos;
+
     [Header("References")]
     public Transform shootPoint;
     public ParticleSystem muzzleFlash;
@@ -53,6 +59,14 @@ public class Weapon : MonoBehaviour
         recoilSystem = GetComponentInParent<Recoil>();
         mainCam = Camera.main;
         if (mainCam != null) defaultFOV = mainCam.fieldOfView;
+        originalLocalPos = transform.localPosition;
+    }
+
+    void Update()
+    {
+        // Smoothly return weapon model after kickback
+        currentKickback = Vector3.Lerp(currentKickback, Vector3.zero, Time.deltaTime * kickbackSmoothness);
+        transform.localPosition = originalLocalPos + currentKickback;
     }
 
     void OnEnable()
@@ -80,6 +94,9 @@ public class Weapon : MonoBehaviour
 
         if (muzzleFlash != null) muzzleFlash.Play();
         if (animator != null) animator.SetTrigger("Shoot");
+
+        // Procedural Kickback
+        currentKickback -= Vector3.forward * kickbackAmount;
 
         // Apply Recoil
         if (recoilSystem != null) recoilSystem.RecoilFire(recoilRotation);

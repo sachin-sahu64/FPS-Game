@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4917008037056764971}
   - component: {fileID: 3172341373621604102}
+  - component: {fileID: 5706143830776736606}
   m_Layer: 0
   m_Name: BaseBall
   m_TagString: Untagged
@@ -61,12 +62,32 @@ MonoBehaviour:
   spread: 0.001
   runningSpreadMultiplier: 0.1
   recoilRotation: {x: -2, y: 0.5, z: 0}
+  kickbackAmount: 0.05
+  kickbackSmoothness: 10
   shootPoint: {fileID: 6525098249635561377}
   muzzleFlash: {fileID: 0}
   hitEffectPrefab: {fileID: 0}
   hitLayer:
     serializedVersion: 2
     m_Bits: 128
+--- !u!114 &5706143830776736606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3611907596552259315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 643171f6e11cc46478d434e5f49ee8cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponSway
+  amount: 0.04
+  maxAmount: 0.12
+  smoothAmount: 4
+  rotationAmount: 10
+  maxRotationAmount: 12
+  smoothRotation: 8
 --- !u!1 &5307140812227325544
 GameObject:
   m_ObjectHideFlags: 0

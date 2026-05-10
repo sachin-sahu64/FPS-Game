@@ -41,6 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8746408593612805211}
   - component: {fileID: 7243784978904512675}
+  - component: {fileID: -227780852029082452}
   m_Layer: 0
   m_Name: Knife
   m_TagString: Untagged
@@ -92,9 +93,29 @@ MonoBehaviour:
   spread: 0.001
   runningSpreadMultiplier: 0.1
   recoilRotation: {x: -2, y: 0.5, z: 0}
+  kickbackAmount: 0.05
+  kickbackSmoothness: 10
   shootPoint: {fileID: 3795630729659879647}
   muzzleFlash: {fileID: 0}
   hitEffectPrefab: {fileID: 0}
   hitLayer:
     serializedVersion: 2
     m_Bits: 128
+--- !u!114 &-227780852029082452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7097825607229970170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 643171f6e11cc46478d434e5f49ee8cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponSway
+  amount: 0.04
+  maxAmount: 0.12
+  smoothAmount: 4
+  rotationAmount: 10
+  maxRotationAmount: 12
+  smoothRotation: 8

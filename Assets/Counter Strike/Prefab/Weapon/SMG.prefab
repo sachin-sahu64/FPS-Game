@@ -41,6 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7669516488964311899}
   - component: {fileID: 5443578110857517148}
+  - component: {fileID: -4998333420825063647}
   m_Layer: 0
   m_Name: SMG
   m_TagString: Untagged
@@ -92,9 +93,29 @@ MonoBehaviour:
   spread: 0.04
   runningSpreadMultiplier: 2
   recoilRotation: {x: -1, y: 2, z: 0.5}
+  kickbackAmount: 0.05
+  kickbackSmoothness: 10
   shootPoint: {fileID: 3543591058203128011}
   muzzleFlash: {fileID: 0}
   hitEffectPrefab: {fileID: 0}
   hitLayer:
     serializedVersion: 2
     m_Bits: 128
+--- !u!114 &-4998333420825063647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5599291426903827811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 643171f6e11cc46478d434e5f49ee8cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponSway
+  amount: 0.01
+  maxAmount: 0.03
+  smoothAmount: 12
+  rotationAmount: 4
+  maxRotationAmount: 5
+  smoothRotation: 18
