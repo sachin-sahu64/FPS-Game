@@ -44,6 +44,7 @@ public class Weapon : MonoBehaviour
     public Transform shootPoint;
     public ParticleSystem muzzleFlash;
     public GameObject hitEffectPrefab;
+    public GameObject bulletHolePrefab;
     public LayerMask hitLayer;
     private Recoil recoilSystem;
     private Camera mainCam;
@@ -111,7 +112,20 @@ public class Weapon : MonoBehaviour
         if (Physics.Raycast(shootPoint.position, shootDir, out RaycastHit hit, range, hitLayer))
         {
             if (hit.collider.TryGetComponent(out Health health)) health.TakeDamage(damage);
-            if (hitEffectPrefab != null) Instantiate(hitEffectPrefab, hit.point, Quaternion.LookRotation(hit.normal));
+
+            // 1. Sparks
+            if (hitEffectPrefab != null) 
+            {
+                GameObject spark = Instantiate(hitEffectPrefab, hit.point, Quaternion.LookRotation(hit.normal));
+                spark.transform.parent = hit.transform;
+            }
+
+            // 2. Bullet Hole
+            if (bulletHolePrefab != null)
+            {
+                GameObject hole = Instantiate(bulletHolePrefab, hit.point + (hit.normal * 0.001f), Quaternion.LookRotation(-hit.normal));
+                hole.transform.parent = hit.transform;
+            }
         }
 
         if (weaponType == WeaponType.Sniper && isScoped) ToggleScope(); // Auto unscope for bolt action feel

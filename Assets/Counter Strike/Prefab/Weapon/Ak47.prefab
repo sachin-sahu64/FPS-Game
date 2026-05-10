@@ -99,10 +99,11 @@ MonoBehaviour:
   kickbackSmoothness: 10
   shootPoint: {fileID: 3105211332339803486}
   muzzleFlash: {fileID: 0}
-  hitEffectPrefab: {fileID: 0}
+  hitEffectPrefab: {fileID: 1437059892178109116, guid: 454cfabff11468347897cbf8ff644267, type: 3}
+  bulletHolePrefab: {fileID: 1801071762867255677, guid: e5cc3c5ff6b13074fbb329cee56283b7, type: 3}
   hitLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 193
 --- !u!114 &225350676204462656
 MonoBehaviour:
   m_ObjectHideFlags: 0
